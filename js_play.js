@@ -28,3 +28,11 @@ invoke_and_add(one, two); // return 3
 invoke_and_add(function(){return 1;}, function(){return 2;})
 
 
+// inner / private functions
+var a = function(param) {
+	var b = function(theinput) {
+       return theinput * 2;
+    }
+    return 'The result is ' + b(param);
+}
+
