@@ -45,3 +45,20 @@ function Hero(name) {
 var h1 = new Hero('Michelangelo');
 h2 = new Hero('Donatello');
 h1.whoAreYou();
+h2.whoAreYou();
+
+// without new 
+var h = Hero('Leonardo');
+typeof h;
+// undefined because 'new' is missing.
+// Because you had this inside Hero, a global variable (a property of the global object) called name was created.
+window.name;
+// "Leonardo"
+// If you call the same constructor function but this time using new, then a new object is returned and this refers to it.
+h2 = new Hero('Michelangelo');
+typeof h2;
+ // "object"
+
+ // constructor property
+ h2.constructor
+ // Hero(name)
