@@ -37,3 +37,29 @@ Shape.prototype.isPrototypeOf(my); // True
 TwoDShape.prototype.isPrototypeOf(my); // True
 Triangle.prototype.isPrototypeOf(my); // True
 
+// Moving Shared Properties to the Prototype
+
+function Shape(){}
+// augment prototype
+Shape.prototype.name = 'shape';
+Shape.prototype.toString = function() {return this.name;};
+function TwoDShape(){}
+
+// take care of inheritance
+TwoDShape.prototype = new Shape();
+TwoDShape.prototype.constructor = TwoDShape;
+// augment prototype
+TwoDShape.prototype.name = '2D shape';
+
+
+function Triangle(side, height) {
+	this.side = side;
+	this.height = height;
+}
+// take care of inheritance
+Triangle.prototype = new TwoDShape();
+Triangle.prototype.constructor = Triangle;
+// augment prototype
+Triangle.prototype.name = 'Triangle';
+Triangle.prototype.getArea = function(){return this.side * this.height / 2;};
+
