@@ -23,5 +23,10 @@ Gadget.prototype.getInfo = function() {
 	return 'Rating: ' + this.rating + ', price: ' + this.price;
 };
 
+// Own Properties versus prototype Properties
+Gadget.prototype.getInfo = function() {
+	return 'Rating: ' + Gadget.prototype.rating + ', price: ' + Gadget.prototype.price;
+};
+
 
 
